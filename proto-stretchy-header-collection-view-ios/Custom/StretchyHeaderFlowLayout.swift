@@ -23,7 +23,7 @@ class StretchyHeaderFlowLayout: UICollectionViewFlowLayout {
                 
                 // get the offset of the entire collection view
                 let contentOffsetY = collectionView.contentOffset.y
-                print(contentOffsetY)
+                // print(contentOffsetY)
                 
                 // Offset will be +ve if scrolling up.
                 if contentOffsetY > 0 { return }
