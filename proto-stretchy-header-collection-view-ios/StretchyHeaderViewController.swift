@@ -34,7 +34,7 @@ class StretchyHeaderViewController: UICollectionViewController, UICollectionView
     }
     
     fileprivate func setupCollectionView() {
-        collectionView.backgroundColor = .yellow
+        collectionView.backgroundColor = .white
         
         // if you want the header to display under notch at the top and home bar at the bottom
         collectionView.contentInsetAdjustmentBehavior = .never
@@ -51,6 +51,16 @@ class StretchyHeaderViewController: UICollectionViewController, UICollectionView
         if let layout = collectionViewLayout as? UICollectionViewFlowLayout {
             layout.sectionInset = UIEdgeInsets(top: padding, left: padding, bottom: padding, right: padding)
         }
+    }
+    
+    override func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        let contentOffsetY = scrollView.contentOffset.y
+        if contentOffsetY > 0 {
+            headerView?.animator.fractionComplete = 0
+            return
+        }
+        headerView?.animator.fractionComplete = abs(contentOffsetY) / 100
+        
     }
     
     // specify number of secions in collection view
@@ -75,10 +85,13 @@ class StretchyHeaderViewController: UICollectionViewController, UICollectionView
         return CGSize(width: view.frame.width - 2 * padding, height: 50)
     }
     
+    // declare an optional property to capture the reference to header
+    var headerView: HeaderReusableView?
+    
     // we need to deque header and return the value. Header will not display until a size is set
     override func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
-        let header = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: headerId, for: indexPath)
-        return header
+        headerView = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: headerId, for: indexPath) as? HeaderReusableView
+        return headerView!
     }
     
     // return a size for header view

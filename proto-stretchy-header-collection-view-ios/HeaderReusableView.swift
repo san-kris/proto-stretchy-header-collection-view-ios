@@ -16,45 +16,44 @@ class HeaderReusableView: UICollectionReusableView {
         return imv
     }()
     
+    var animator: UIViewPropertyAnimator!
+    let visualEffectView = UIVisualEffectView(effect: nil)
+    
+    
     
     override init(frame: CGRect) {
         super.init(frame: frame)
         // custom layout code here
-        self.backgroundColor = .red
+        self.backgroundColor = .clear
         // add the image view as subview
-        self.addSubview(imageView)
-        
+        addSubview(imageView)
+        imageView.fillSuperview()
+        // Add an VisualEffect as subview over the image view
+        addSubview(visualEffectView)
         // set the anchors
-        anchorToSuperview(view: imageView)
+        visualEffectView.fillSuperview()
+        
+        // setup Blur Effect
+        setupVisualEffectBlur()
                 
     }
     
-    // setup anchors for image in header
-    func anchorToSuperview(view: UIView) -> Void {
-        // disable auto constraints
-        view.translatesAutoresizingMaskIntoConstraints = false
-
-        // set the anchor to superview anchor
-        if let superviewTopAnchor = view.superview?.topAnchor {
-            view.topAnchor.constraint(equalTo: superviewTopAnchor, constant: 0).isActive = true
-        }
+    fileprivate func setupVisualEffectBlur() -> Void {
         
-        // set the anchor to superview anchor
-        if let superviewBottomAnchor = view.superview?.bottomAnchor {
-            view.bottomAnchor.constraint(equalTo: superviewBottomAnchor, constant: 0).isActive = true
+        animator = UIViewPropertyAnimator(duration: 1.0, curve: .linear)
+                
+        animator.addAnimations { [weak self] in
+            // treat this area as the end state of the animation
+            let blurEffect = UIBlurEffect(style: .regular)
+            self?.visualEffectView.effect = blurEffect
+            // visualEffectView.alpha = 1.0
+                
         }
-        
-        // set the anchor to superview anchor
-        if let superviewLeadingAnchor = view.superview?.leadingAnchor {
-            view.leadingAnchor.constraint(equalTo: superviewLeadingAnchor, constant: 0).isActive = true
-        }
-        
-        // set the anchor to superview anchor
-        if let superviewTrailingAnchor = view.superview?.trailingAnchor {
-            view.trailingAnchor.constraint(equalTo: superviewTrailingAnchor, constant: 0).isActive = true
-        }
-
+        // call function to start animation
+        // animator.startAnimation()
+        animator.fractionComplete = 0
     }
+    
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")

@@ -15,6 +15,7 @@
 		AA12CDC729C7D976004251EE /* StretchyHeaderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA12CDC629C7D976004251EE /* StretchyHeaderViewController.swift */; };
 		AA12CDC929C89ED7004251EE /* HeaderReusableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA12CDC829C89ED7004251EE /* HeaderReusableView.swift */; };
 		AA12CDCC29C8B826004251EE /* StretchyHeaderFlowLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA12CDCB29C8B826004251EE /* StretchyHeaderFlowLayout.swift */; };
+		AA12CE1029CA024F004251EE /* Extension-UIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA12CE0F29CA024F004251EE /* Extension-UIView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,6 +29,7 @@
 		AA12CDC629C7D976004251EE /* StretchyHeaderViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StretchyHeaderViewController.swift; sourceTree = "<group>"; };
 		AA12CDC829C89ED7004251EE /* HeaderReusableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderReusableView.swift; sourceTree = "<group>"; };
 		AA12CDCB29C8B826004251EE /* StretchyHeaderFlowLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StretchyHeaderFlowLayout.swift; sourceTree = "<group>"; };
+		AA12CE0F29CA024F004251EE /* Extension-UIView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Extension-UIView.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -69,6 +71,7 @@
 				AA12CDC029C7D889004251EE /* Info.plist */,
 				AA12CDC629C7D976004251EE /* StretchyHeaderViewController.swift */,
 				AA12CDC829C89ED7004251EE /* HeaderReusableView.swift */,
+				AA12CE0F29CA024F004251EE /* Extension-UIView.swift */,
 			);
 			path = "proto-stretchy-header-collection-view-ios";
 			sourceTree = "<group>";
@@ -157,6 +160,7 @@
 				AA12CDC929C89ED7004251EE /* HeaderReusableView.swift in Sources */,
 				AA12CDB529C7D887004251EE /* SceneDelegate.swift in Sources */,
 				AA12CDC729C7D976004251EE /* StretchyHeaderViewController.swift in Sources */,
+				AA12CE1029CA024F004251EE /* Extension-UIView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
